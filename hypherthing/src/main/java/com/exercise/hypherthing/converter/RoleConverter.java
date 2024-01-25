@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
         public Role toEntity(RoleDTO roleDTO) {
             Role role = null;
             if(roleDTO != null){
-                role = new Role(role.getId(), role.getType(), role.getDescription());
+                role = new Role(roleDTO.getId(), roleDTO.getType(),
+                        roleDTO.getDescription());
             }
             return role;
         }
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
         public RoleDTO toDTO(Role role) {
             RoleDTO roleDTO = null;
             if(role != null){
-                roleDTO = new RoleDTO(roleDTO.getId(), roleDTO.getType(), role.getDescription());
+                roleDTO = new RoleDTO(role.getId(), role.getType(), role.getDescription());
             }
             return roleDTO;
         }

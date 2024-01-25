@@ -20,6 +20,16 @@ public class EmployeeService extends AbstractService<Employee, EmployeeDTO> {
     @Autowired
     private EmployeeDAO repository;
 
+    public EmployeeDTO insert(EmployeeDTO employeeDTO) {
+        employeeDTO = new EmployeeDTO(employeeDTO.getId(), employeeDTO.getName()
+                , employeeDTO.getLastName(), employeeDTO.getBirthday()
+                , employeeDTO.getHiringDate(), employeeDTO.getContractDuration()
+                , employeeDTO.getPhoneNumber()
+                , employeeDTO.getEmail(), employeeDTO.getRole()
+                , employeeDTO.getOffice());
+        return converter.toDTO(repository.save(converter.toEntity(employeeDTO)));
+    }
+
     public Employee update(Long id, EmployeeDTO employeeDto) {
         Optional<Employee> existingEmployee = repository.findById(id);
 

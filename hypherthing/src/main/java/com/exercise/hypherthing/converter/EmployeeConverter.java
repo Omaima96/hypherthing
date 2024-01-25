@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
         public Employee toEntity(EmployeeDTO employeeDTO) {
             Employee employee = null;
             if(employeeDTO!=null){
-                employee = new Employee(employee.getId(), employee.getName(), employee.getLastName(), employee.getBirthday(),
-                        employee.getHiringDate(), employee.getContractDuration(), employee.getPhoneNumber(), employee.getEmail(), employee.getRole(), employee.getOffice());
+                employee = new Employee(employeeDTO.getId(), employeeDTO.getName(), employeeDTO.getLastName(), employeeDTO.getBirthday(),
+                        employeeDTO.getHiringDate(), employeeDTO.getContractDuration(), employeeDTO.getPhoneNumber(), employeeDTO.getEmail(), employeeDTO.getRole(), employeeDTO.getOffice());
             }
             return employee;
         }
@@ -21,8 +21,8 @@ import org.springframework.stereotype.Component;
         public EmployeeDTO toDTO(Employee employee) {
             EmployeeDTO employeeDTO = null;
             if(employee!= null){
-                employeeDTO = new EmployeeDTO(employeeDTO.getId(), employeeDTO.getName(), employeeDTO.getLastName(), employeeDTO.getBirthday(),
-                        employeeDTO.getHiringDate(), employee.getContractDuration(), employeeDTO.getPhoneNumber(), employeeDTO.getEmail(), employeeDTO.getRole(), employeeDTO.getOffice());
+                employeeDTO = new EmployeeDTO(employee.getId(), employee.getName(), employee.getLastName(), employee.getBirthday(),
+                        employee.getHiringDate(), employee.getContractDuration(), employee.getPhoneNumber(), employee.getEmail(), employee.getRole(), employee.getOffice());
             }
             return employeeDTO;
         }

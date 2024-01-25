@@ -25,6 +25,10 @@ public abstract class AbstractService <Entity,DTO> implements Service<DTO>{
     public AbstractService(){
 
     }
+    @Override
+    public DTO insert(DTO dto) {
+        return converter.toDTO(repository.save(converter.toEntity(dto)));
+    }
 
     @Override
     public DTO getById(Long id) {

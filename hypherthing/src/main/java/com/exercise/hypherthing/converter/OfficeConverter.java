@@ -10,10 +10,10 @@ public class OfficeConverter extends AbstractConverter<Office, OfficeDTO>{
     public Office toEntity(OfficeDTO officeDTO) {
         Office office = null;
         if(officeDTO !=null){
-            office = new Office(office.getId(),
-                    office.getStreet(),
-                    office.getCity(),
-                    office.getCap());
+            office = new Office(officeDTO.getId(),
+                    officeDTO.getStreet(),
+                    officeDTO.getCity(),
+                    officeDTO.getCap());
         }
         return office;
     }
@@ -22,7 +22,7 @@ public class OfficeConverter extends AbstractConverter<Office, OfficeDTO>{
     public OfficeDTO toDTO(Office office) {
         OfficeDTO officeDTO = null;
         if(office != null) {
-            officeDTO = new OfficeDTO(officeDTO.getId(), officeDTO.getStreet(), officeDTO.getCity(), officeDTO.getCap());
+            officeDTO = new OfficeDTO(office.getId(), office.getStreet(), office.getCity(), office.getCap());
         }
         return officeDTO;
     }

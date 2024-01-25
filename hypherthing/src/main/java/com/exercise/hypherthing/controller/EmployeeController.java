@@ -31,14 +31,13 @@ public class EmployeeController  {
         public ResponseEntity<Employee> update(@PathVariable Long id, @RequestBody EmployeeDTO dto) {
             Employee updatedEmployee = service.update(id, dto);
             return ResponseEntity.ok(updatedEmployee);
-
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@RequestParam("id") Long id) {
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
         service.delete(id);
+        return "DELETE_OK";
     }
-
     @GetMapping("/getByRole")
     public List<Employee> getAllByFilter(@RequestParam String role){
         return service.getByRoleFilter(role);
